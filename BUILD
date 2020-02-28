@@ -1,3 +1,4 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
 
 cc_library(
     name = "catch2",
@@ -19,16 +20,16 @@ cc_library(
 
 cc_test(
     name = "main-test",
+    timeout = "short",
     srcs = ["tests/catch2_main_test.cpp"],
     # deps = ["@catch2//:main"], # Use this in your code
     deps = [":main"],
-    timeout = "short",
 )
 
 cc_test(
     name = "no-main-test",
+    timeout = "short",
     srcs = ["tests/catch2_no_main_test.cpp"],
     # deps = ["@catch2//:catch2"], # Use this in your code
     deps = [":catch2"],
-    timeout = "short",
 )
